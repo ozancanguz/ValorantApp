@@ -1,8 +1,11 @@
 package com.ozancanguz.valorantapp.data.model.agents
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Role(
     @SerializedName("assetPath")
     val assetPath: String,
@@ -14,4 +17,4 @@ data class Role(
     val displayName: String,
     @SerializedName("uuid")
     val uuid: String
-)
+):Parcelable

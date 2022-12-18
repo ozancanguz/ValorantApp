@@ -9,7 +9,11 @@
         android:id="@+id/agentList"
         android:name="com.ozancanguz.valorantapp.ui.fragments.agentslist.AgentList"
         android:label="Agents"
-        tools:layout="@layout/fragment_agent_list" />
+        tools:layout="@layout/fragment_agent_list" >
+        <action
+            android:id="@+id/action_agentList_to_agentDetailsFragment"
+            app:destination="@id/agentDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.ozancanguz.valorantapp.ui.fragments.maps.MapsFragment"
@@ -19,7 +23,10 @@
         android:id="@+id/agentDetailsFragment"
         android:name="com.ozancanguz.valorantapp.ui.fragments.agentDetails.AgentDetailsFragment"
         android:label="Agent Details"
-        tools:layout="@layout/fragment_agent_details" />
+        tools:layout="@layout/fragment_agent_details" >
+        <argument android:name="currentAgent"
+            app:argType="com.ozancanguz.valorantapp.data.model.agents.Data" />
+    </fragment>
     <fragment
         android:id="@+id/mapsDetails"
         android:name="com.ozancanguz.valorantapp.ui.fragments.mapsDetails.MapsDetails"

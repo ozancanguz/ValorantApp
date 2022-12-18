@@ -1,21 +1,21 @@
 package com.ozancanguz.valorantapp.data.model.agents
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Data(
-    @SerializedName("abilities")
-    val abilities: List<Ability>,
+
     @SerializedName("assetPath")
     val assetPath: String,
     @SerializedName("background")
     val background: String,
-    @SerializedName("backgroundGradientColors")
-    val backgroundGradientColors: List<String>,
+
     @SerializedName("bustPortrait")
     val bustPortrait: String,
-    @SerializedName("characterTags")
-    val characterTags: Any,
+
     @SerializedName("description")
     val description: String,
     @SerializedName("developerName")
@@ -44,6 +44,5 @@ data class Data(
     val role: Role,
     @SerializedName("uuid")
     val uuid: String,
-    @SerializedName("voiceLine")
-    val voiceLine: VoiceLine
-)
+
+):Parcelable

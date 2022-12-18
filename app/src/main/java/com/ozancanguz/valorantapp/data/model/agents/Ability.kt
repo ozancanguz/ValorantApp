@@ -1,8 +1,11 @@
 package com.ozancanguz.valorantapp.data.model.agents
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Ability(
     @SerializedName("description")
     val description: String,
@@ -12,4 +15,4 @@ data class Ability(
     val displayName: String,
     @SerializedName("slot")
     val slot: String
-)
+):Parcelable

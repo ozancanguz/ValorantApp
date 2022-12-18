@@ -3,10 +3,12 @@ package com.ozancanguz.valorantapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.valorantapp.R
 import com.ozancanguz.valorantapp.data.model.agents.Agents
 import com.ozancanguz.valorantapp.data.model.agents.Data
+import com.ozancanguz.valorantapp.ui.fragments.agentslist.AgentListDirections
 import com.ozancanguz.valorantapp.util.Util.Companion.loadImage
 import kotlinx.android.synthetic.main.agents_row_layout.view.*
 
@@ -38,6 +40,10 @@ class AgentsAdapter:RecyclerView.Adapter<AgentsAdapter.AgentsViewholder>() {
         // glide img
         holder.itemView.agents_fullPortrait.loadImage(currentAgent.fullPortrait)
 
+        holder.itemView.setOnClickListener {
+            val direction=AgentListDirections.actionAgentListToAgentDetailsFragment(currentAgent)
+            holder.itemView.findNavController().navigate(direction)
+        }
 
 
     }
