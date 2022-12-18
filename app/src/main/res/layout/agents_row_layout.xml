@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/purple_700"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/row_card"
-        android:layout_width="392dp"
-        android:layout_height="267dp"
+        android:layout_width="397dp"
+        android:layout_height="232dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +22,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/lightMediumGray">
+            android:layout_height="235dp"
+            android:background="@color/red">
 
             <ImageView
                 android:id="@+id/agents_fullPortrait"
@@ -36,32 +37,16 @@
 
             <TextView
                 android:id="@+id/agents_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
+                android:layout_width="142dp"
+                android:layout_height="29dp"
                 android:ellipsize="end"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/agents_fullPortrait"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/agents_role"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:ellipsize="end"
-                android:textSize="20sp"
-                android:textColor="@color/red"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
-                app:layout_constraintEnd_toEndOf="@+id/agents_name"
-                app:layout_constraintStart_toStartOf="@+id/agents_name"
-                app:layout_constraintTop_toBottomOf="@+id/agents_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

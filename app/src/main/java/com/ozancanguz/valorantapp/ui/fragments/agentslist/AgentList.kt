@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozancanguz.valorantapp.R
+import com.ozancanguz.valorantapp.adapter.AgentsAdapter
 import com.ozancanguz.valorantapp.databinding.FragmentAgentDetailsBinding
 import com.ozancanguz.valorantapp.databinding.FragmentAgentListBinding
 import com.ozancanguz.valorantapp.viewmodel.MainViewModel
@@ -23,6 +25,8 @@ class AgentList : Fragment() {
 
     private val mainviewmodel:MainViewModel by viewModels()
 
+    private val agentsAdapter=AgentsAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,17 +34,25 @@ class AgentList : Fragment() {
         _binding = FragmentAgentListBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        // observe live data and update
        observeLiveData()
 
+        // set up rv
+        setupRv()
 
 
         return view
     }
 
+    private fun setupRv() {
+        binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter=agentsAdapter
+    }
+
     private fun observeLiveData() {
         mainviewmodel.requestAgents()
         mainviewmodel.agentsList.observe(viewLifecycleOwner, Observer {
-            Log.d("agentlist", "" +it)
+            agentsAdapter.setData(it)
         })
     }
 

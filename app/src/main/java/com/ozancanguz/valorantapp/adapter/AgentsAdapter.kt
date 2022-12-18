@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.valorantapp.R
 import com.ozancanguz.valorantapp.data.model.agents.Agents
 import com.ozancanguz.valorantapp.data.model.agents.Data
+import com.ozancanguz.valorantapp.util.Util.Companion.loadImage
 import kotlinx.android.synthetic.main.agents_row_layout.view.*
 
 class AgentsAdapter:RecyclerView.Adapter<AgentsAdapter.AgentsViewholder>() {
@@ -32,9 +33,11 @@ class AgentsAdapter:RecyclerView.Adapter<AgentsAdapter.AgentsViewholder>() {
     override fun onBindViewHolder(holder: AgentsViewholder, position: Int) {
     val currentAgent=agentsList[position]
         holder.itemView.agents_name.text=currentAgent.displayName
-         holder.itemView.agents_role.text=currentAgent.role.description
+
 
         // glide img
+        holder.itemView.agents_fullPortrait.loadImage(currentAgent.fullPortrait)
+
 
 
     }
