@@ -1,8 +1,11 @@
 package com.ozancanguz.valorantapp.data.model.bundle
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class BundleResult(
     @SerializedName("assetPath")
     val assetPath: String,
@@ -14,16 +17,10 @@ data class BundleResult(
     val displayIcon2: String,
     @SerializedName("displayName")
     val displayName: String,
-    @SerializedName("displayNameSubText")
-    val displayNameSubText: Any,
-    @SerializedName("extraDescription")
-    val extraDescription: Any,
-    @SerializedName("promoDescription")
-    val promoDescription: Any,
     @SerializedName("useAdditionalContext")
     val useAdditionalContext: Boolean,
     @SerializedName("uuid")
     val uuid: String,
     @SerializedName("verticalPromoImage")
     val verticalPromoImage: String
-)
+):Parcelable

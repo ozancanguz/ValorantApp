@@ -4,10 +4,12 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.valorantapp.R
 import com.ozancanguz.valorantapp.data.model.bundle.Bundle
 import com.ozancanguz.valorantapp.data.model.bundle.BundleResult
+import com.ozancanguz.valorantapp.ui.fragments.bundle.BundleFragmentDirections
 import com.ozancanguz.valorantapp.util.Util.Companion.loadImage
 import kotlinx.android.synthetic.main.bundle_row_layout.view.*
 
@@ -33,6 +35,11 @@ class BundleAdapter:RecyclerView.Adapter<BundleAdapter.BundleViewHolder>() {
         var currentBundle=bundleList[position]
         holder.itemView.bundle_img.loadImage(currentBundle.displayIcon)
         holder.itemView.bundle_name.text=currentBundle.displayName
+
+        holder.itemView.setOnClickListener {
+            val direction=BundleFragmentDirections.actionBundleFragmentToBundleDetailFragment(currentBundle)
+            holder.itemView.findNavController().navigate(direction)
+        }
     }
 
     override fun getItemCount(): Int {

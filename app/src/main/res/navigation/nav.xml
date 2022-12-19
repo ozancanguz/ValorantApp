@@ -25,6 +25,22 @@
     <fragment
         android:id="@+id/bundleFragment"
         android:name="com.ozancanguz.valorantapp.ui.fragments.bundle.BundleFragment"
-        android:label="bundle fragment"
-        tools:layout="@layout/fragment_maps" />
+        android:label="Bundles"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_bundleFragment_to_bundleDetailFragment"
+            app:destination="@id/bundleDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bundleDetailFragment"
+        android:name="com.ozancanguz.valorantapp.ui.fragments.bundleDetail.BundleDetailFragment"
+        android:label="Bundle Details"
+        tools:layout="@layout/fragment_bundle_detail" >
+        <action
+            android:id="@+id/action_bundleDetailFragment_to_bundleFragment"
+            app:destination="@id/bundleFragment" />
+        <argument
+            android:name="currentBundle"
+            app:argType="com.ozancanguz.valorantapp.data.model.bundle.BundleResult" />
+    </fragment>
 </navigation>
