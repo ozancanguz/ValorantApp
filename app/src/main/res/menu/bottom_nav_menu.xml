@@ -6,7 +6,7 @@
           android:icon="@drawable/char2"></item>
 
 
-    <item android:id="@+id/mapsFragment"
+    <item android:id="@+id/weaponFragment"
           android:title="Maps"
           android:icon="@drawable/maps3"></item>
 

@@ -15,21 +15,34 @@
             app:destination="@id/agentDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.ozancanguz.valorantapp.ui.fragments.maps.MapsFragment"
-        android:label="Maps"
-        tools:layout="@layout/fragment_maps" />
-    <fragment
         android:id="@+id/agentDetailsFragment"
         android:name="com.ozancanguz.valorantapp.ui.fragments.agentDetails.AgentDetailsFragment"
         android:label="Agent Details"
         tools:layout="@layout/fragment_agent_details" >
         <argument android:name="currentAgent"
             app:argType="com.ozancanguz.valorantapp.data.model.agents.Data" />
+        <action
+            android:id="@+id/action_agentDetailsFragment_to_agentList"
+            app:destination="@id/agentList" />
     </fragment>
     <fragment
         android:id="@+id/mapsDetails"
         android:name="com.ozancanguz.valorantapp.ui.fragments.mapsDetails.MapsDetails"
         android:label="Map Details"
-        tools:layout="@layout/fragment_maps_details" />
+        tools:layout="@layout/fragment_maps_details" >
+        <action
+            android:id="@+id/action_mapsDetails_to_weaponFragment"
+            app:destination="@id/weaponFragment" />
+        <argument android:name="mapDetails"
+            app:argType="com.ozancanguz.valorantapp.data.model.weapon.Data" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponFragment"
+        android:name="com.ozancanguz.valorantapp.ui.fragments.maps.WeaponFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_weaponFragment_to_mapsDetails"
+            app:destination="@id/mapsDetails" />
+    </fragment>
 </navigation>
