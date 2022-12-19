@@ -34,7 +34,7 @@ class AgentsAdapter:RecyclerView.Adapter<AgentsAdapter.AgentsViewholder>() {
 
     override fun onBindViewHolder(holder: AgentsViewholder, position: Int) {
     val currentAgent=agentsList[position]
-        holder.itemView.agents_name.text=currentAgent.displayName
+        holder.itemView.bundle_name.text=currentAgent.displayName
 
 
         // glide img

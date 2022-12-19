@@ -1,7 +1,8 @@
 package com.ozancanguz.valorantapp.data.valorantApi
 
 import com.ozancanguz.valorantapp.data.model.agents.Agents
-import com.ozancanguz.valorantapp.data.model.maps.Maps
+import com.ozancanguz.valorantapp.data.model.bundle.Bundle
+
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -11,7 +12,7 @@ interface ValorantApi {
     suspend fun getAgents(): Response<Agents>
 
 
-    @GET("maps")
-    suspend fun getMaps():Response<Maps>
+  @GET("bundles")
+  suspend fun getBundles():Response<Bundle>
 
 }

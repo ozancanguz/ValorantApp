@@ -6,8 +6,8 @@
           android:icon="@drawable/char2"></item>
 
 
-    <item android:id="@+id/mapsFragment"
-          android:title="Maps"
-          android:icon="@drawable/maps3"></item>
+    <item android:id="@+id/bundleFragment"
+          android:title="Bundle"
+          android:icon="@drawable/bundle"></item>
 
 </menu>

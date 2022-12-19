@@ -4,9 +4,11 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.ozancanguz.valorantapp.data.Repository
 import com.ozancanguz.valorantapp.data.model.agents.Agents
-import com.ozancanguz.valorantapp.data.model.maps.Maps
+import com.ozancanguz.valorantapp.data.model.bundle.Bundle
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +20,7 @@ import javax.inject.Inject
 class MainViewModel@Inject constructor(val repository: Repository, application: Application):AndroidViewModel(application) {
 
     var agentsList=MutableLiveData<Agents>()
-    var mapList=MutableLiveData<Maps>()
+   var bundleList=MutableLiveData<Bundle>()
     var job: Job?=null
 
 
@@ -36,17 +38,18 @@ class MainViewModel@Inject constructor(val repository: Repository, application: 
         }
     }
 
-    fun requestMaps(){
+   fun requestBundleData(){
         job= CoroutineScope(Dispatchers.IO).launch {
-            val mapResponse=repository.remote.getMaps()
-            if(mapResponse.isSuccessful){
-                mapList.postValue(mapResponse.body())
-                Log.d("viewmodel","data retrieved")
+            val response=repository.remote.getBundles()
+            if(response.isSuccessful){
+                bundleList.postValue(response.body())
+                Log.d("viewmodelBundle","" +response)
             }else{
-                Log.d("viewmodel","data not found")
+                Log.d("viewmodelBundle","data not found")
             }
         }
-    }
+
+   }
 
 
 
