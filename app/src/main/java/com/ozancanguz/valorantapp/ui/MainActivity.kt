@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.agentList,
-                R.id.weaponFragment
+                R.id.mapsFragment
             )
         )
 

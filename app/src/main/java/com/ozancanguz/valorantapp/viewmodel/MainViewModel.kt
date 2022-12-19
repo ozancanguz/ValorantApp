@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.ozancanguz.valorantapp.data.Repository
 import com.ozancanguz.valorantapp.data.model.agents.Agents
+import com.ozancanguz.valorantapp.data.model.maps.Maps
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class MainViewModel@Inject constructor(val repository: Repository, application: Application):AndroidViewModel(application) {
 
     var agentsList=MutableLiveData<Agents>()
-
+    var mapList=MutableLiveData<Maps>()
     var job: Job?=null
 
 
@@ -35,7 +36,17 @@ class MainViewModel@Inject constructor(val repository: Repository, application: 
         }
     }
 
-
+    fun requestMaps(){
+        job= CoroutineScope(Dispatchers.IO).launch {
+            val mapResponse=repository.remote.getMaps()
+            if(mapResponse.isSuccessful){
+                mapList.postValue(mapResponse.body())
+                Log.d("viewmodel","data retrieved")
+            }else{
+                Log.d("viewmodel","data not found")
+            }
+        }
+    }
 
 
 

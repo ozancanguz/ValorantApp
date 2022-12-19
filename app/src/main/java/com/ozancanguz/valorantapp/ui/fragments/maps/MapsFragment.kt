@@ -1,17 +1,16 @@
-package com.ozancanguz.valorantapp.ui.fragments.mapsDetails
+package com.ozancanguz.valorantapp.ui.fragments.maps
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.navArgs
 import com.ozancanguz.valorantapp.R
-import com.ozancanguz.valorantapp.databinding.FragmentMapsDetailsBinding
+import com.ozancanguz.valorantapp.databinding.FragmentMapsBinding
 
 
-class MapsDetails : Fragment() {
-    private var _binding: FragmentMapsDetailsBinding? = null
+class MapsFragment : Fragment() {
+    private var _binding: FragmentMapsBinding? = null
 
     private val binding get() = _binding!!
 
@@ -19,9 +18,8 @@ class MapsDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMapsDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentMapsBinding.inflate(inflater, container, false)
         val view = binding.root
-
 
         return view
     }

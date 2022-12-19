@@ -1,14 +1,13 @@
 package com.ozancanguz.valorantapp.data.model.maps
 
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 data class Data(
     @SerializedName("assetPath")
     val assetPath: String,
+    @SerializedName("callouts")
+    val callouts: List<Callout>,
     @SerializedName("coordinates")
     val coordinates: String,
     @SerializedName("displayIcon")
@@ -31,4 +30,4 @@ data class Data(
     val yMultiplier: Int,
     @SerializedName("yScalarToAdd")
     val yScalarToAdd: Double
-):Parcelable
+)

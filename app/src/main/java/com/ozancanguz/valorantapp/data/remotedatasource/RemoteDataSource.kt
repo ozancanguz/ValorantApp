@@ -1,7 +1,7 @@
 package com.ozancanguz.valorantapp.data.remotedatasource
 
 import com.ozancanguz.valorantapp.data.model.agents.Agents
-import com.ozancanguz.valorantapp.data.model.weapon.Weapon
+import com.ozancanguz.valorantapp.data.model.maps.Maps
 import com.ozancanguz.valorantapp.data.valorantApi.ValorantApi
 import retrofit2.Response
 import javax.inject.Inject
@@ -13,7 +13,7 @@ class RemoteDataSource@Inject constructor(private val valorantApi: ValorantApi) 
         return valorantApi.getAgents()
     }
 
-    suspend fun getMaps():Response<Weapon>{
+    suspend fun getMaps():Response<Maps>{
         return valorantApi.getMaps()
     }
 

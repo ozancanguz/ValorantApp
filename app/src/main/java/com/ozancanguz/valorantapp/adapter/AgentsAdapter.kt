@@ -34,11 +34,11 @@ class AgentsAdapter:RecyclerView.Adapter<AgentsAdapter.AgentsViewholder>() {
 
     override fun onBindViewHolder(holder: AgentsViewholder, position: Int) {
     val currentAgent=agentsList[position]
-        holder.itemView.weapons_name.text=currentAgent.displayName
+        holder.itemView.agents_name.text=currentAgent.displayName
 
 
         // glide img
-        holder.itemView.weapon_img.loadImage(currentAgent.fullPortrait)
+        holder.itemView.agents_fullPortrait.loadImage(currentAgent.fullPortrait)
 
         holder.itemView.setOnClickListener {
             val direction=AgentListDirections.actionAgentListToAgentDetailsFragment(currentAgent)

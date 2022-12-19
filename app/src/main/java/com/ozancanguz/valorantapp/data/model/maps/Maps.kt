@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Maps(
     @SerializedName("data")
-    val `data`: List<Data>,
+    val result: List<Data>,
     @SerializedName("status")
     val status: Int
 )
